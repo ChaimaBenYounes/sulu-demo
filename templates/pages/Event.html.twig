@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>{{ content.title }} EVENT nnnnnnnnnnnnnnnnnnnn</h1>
+
+    {{ content.startDate|date }}  ---  {{ content.endDate|date }}
+
+    {{ content.eventType }}
+
+    {{ content.color }}
+
+    {{ content.article|raw }}
+{% endblock %}
