@@ -7,7 +7,7 @@
     <key>Concert</key>
     <view>pages/Concert</view>
     <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
-    <cacheLifetime>604800</cacheLifetime>
+    <cacheLifetime type="seconds">2400</cacheLifetime><!-- The cache lifetime will be sent to the client in the max-age field of the Cache-Control header -->
     <meta>
         <title lang="en">Concert en anglais</title>
         <title lang="fr">Concert en français</title>
