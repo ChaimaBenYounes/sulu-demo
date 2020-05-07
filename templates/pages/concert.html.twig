@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <h1>{{ content.title }} EVENT</h1>
+        {% if content.startDate is defined and content.endDate is defined %}
+            {{ content.startDate|date }}  ---  {{ content.endDate|date }}
+        {% endif %}
+        {% if content.eventType is defined %}
+            {{ content.eventType }}
+        {% endif %}
+        {% if content.color is defined %}
+            {{ content.color }}
+        {% endif %}
+        {% if content.article is defined %}
+            {{ content.article|raw }}
+        {% endif %}
+
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Event Details</label>
+        {% if content.eventDetails is defined %}
+            {% for eventDetail in content.eventDetails %}
+                {# eventDetail.article|raw #}
+                {# eventDetail.color#}
+                {# eventDetail.type #}
+                <div class="card">
+                    <div class="card-header">
+                        {{ eventDetail.title }}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            {{ eventDetail.article|raw }}
+                            <footer class="blockquote-footer">Published on  <cite title="Source Title">
+                                    {{ eventDetail.publishedDate|date("m/d/Y") }}</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+
+{% endblock %}
