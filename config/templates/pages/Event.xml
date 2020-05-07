@@ -77,6 +77,10 @@
                         <property name="publishedDate" type="date">
                             <meta>
                                 <title lang="en">Start Date</title>
+                                <info_text lang="en">
+                                    If the same as the start date, the event is treated as
+                                    one-day event.
+                                </info_text>
                             </meta>
                         </property>
                     </properties>
