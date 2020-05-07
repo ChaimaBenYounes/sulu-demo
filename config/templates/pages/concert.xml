@@ -32,6 +32,33 @@
 
             <tag name="sulu.rlp"/>
         </property>
+        <property name="title" type="text_line">
+            <meta>
+                <title lang="en">Title</title>
+            </meta>
+            <tag name="sulu.search.field" role="title" />
+        </property>
+
+        <property name="description" type="text_editor">
+            <meta>
+                <title lang="en">Description</title>
+            </meta>
+            <tag name="sulu.search.field" role="description" />
+        </property>
+
+        <property name="images" type="media_selection">
+            <meta>
+                <title lang="en">Images</title>
+            </meta>
+            <tag name="sulu.search.field" role="image" index="false" />
+        </property>
+
+        <property name="article" type="text_editor">
+            <meta>
+                <title lang="en">Article</title>
+            </meta>
+            <tag name="sulu.search.field" />
+        </property>
         <xi:include href="fragments/event-properties.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)
                       xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type/sulu:properties/sulu:property[@name='color'])"/>
