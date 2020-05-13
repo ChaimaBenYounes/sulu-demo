@@ -1,7 +1,63 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>{{ content.title }}</h1>
 
+    <ul>
+        {% for item in sulu_navigation_root_tree('main', 2) %}
+            <li>
+                <a href="{{ sulu_content_path(item.url) }}"
+                   title="{{ item.title }}">{{ item.title }}</a>
+                {% if item.children|length > 0 %}
+                    <ul>
+                        {% for child in item.children %}
+                            <li><a href="{{ sulu_content_path(child.url) }}"
+                                   title="{{ child.title }}">
+                                    {{ child.title }}
+                                </a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <h1>Dump</h1>
+    {{ dump() }}
+    {#vendor/sulu/sulu/src/Sulu/Bundle/WebsiteBundle/Resources/views/Extension/seo.html.twig#}
+
+    {% include "@SuluWebsite/Extension/seo.html.twig" with {
+        "seo": extension.seo|default([]),
+        "content": content|default([]),
+        "urls": urls|default([]),
+        "shadowBaseLocale": shadowBaseLocale|default(),
+        "defaultLocale": app.request.locale
+    } %}
+
+    "seo": {{dump(extension.seo)}}
+    "content": {{dump(content)}}
+    "urls": {{dump(urls)}}
+    "shadowBaseLocale": {{dump(shadowBaseLocale)}}
+    "defaultLocale": {{dump(app.request.locale)}}
+    <h1>Other Variables</h1>
+    request.webspaceKey: Contains the key for the current webspace  {{dump(request.webspaceKey)}}
+    request.webspaceName: Contains the name for the current webspace {{dump(request.webspaceName)}}
+    request.portalKey: Contains the key for the current portal {{dump(request.portalKey)}}
+    request.portalName: Contains the name for the current portal {{dump(request.portalName)}}
+    request.portalUrl: Contains the root URL to the current portal {{dump(request.portalUrl)}}
+    request.resourceLocatorPrefix: Contains the prefix for the current portal {{dump(request.resourceLocatorPrefix)}}
+    request.resourceLocator: Contains the resourceLocator to the current page {{dump(request.resourceLocator)}}
+    uuid: Contains the uuid of the current page {{dump(uuid)}}
+    template: Contains the template key of the current page  {{dump(template)}}
+    creator: Contains the id of the creator of the current page {{dump(creator)}}
+    changer: Contains the id of the changer of the current page {{dump(changer)}}
+    created: Contains the timestamp of the creation of the current page {{dump(created)}}
+    changed: Contains the timestamp of the latest change of the current page{{dump(changed)}}
+    published: Contains the timestamp of the publishing of the current page{{dump(published)}}
+    urls: Contains urls of all locales {{dump( urls)}}
+
+    <h1>{{ content.title }}</h1>
+    {{ extension.excerpt.more }}
+    {{ extension.excerpt.description }}
+    <img src="{{ asset(extension.excerpt.icon[0].thumbnails['160x160']) }}" title="{{ extension.excerpt.title }}" alt="">
+    <img src="{{ asset(extension.excerpt.images[0].thumbnails['225x225']) }}" title="{{ extension.excerpt.title }}" alt="">
     {{ content.article|raw }}
 {% endblock %}

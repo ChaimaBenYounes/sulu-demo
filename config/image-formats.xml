@@ -4,17 +4,30 @@
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
 
     <!-- See: http://docs.sulu.io/en/latest/book/image-formats.html how to define image-formats -->
-
-    <!--
-    <format key="300x">
+    <format key="350X350">
         <meta>
-            <title lang="en">Example Image</title>
-            <title lang="de">Beispielbild</title>
+            <title lang="en">other image</title>
+            <title lang="fr">autre image</title>
         </meta>
 
-        <scale x="300"/>
+        <scale x="350" y="350"/>
     </format>
-    -->
+    <format key="160x160">
+        <meta>
+            <title lang="en">Example Image</title>
+            <title lang="fr">Beispielbild</title>
+        </meta>
+
+        <scale x="160" y="160"/>
+    </format>
+    <format key="225x225">
+        <meta>
+            <title lang="en">Example</title>
+            <title lang="fr">Blbild</title>
+        </meta>
+
+        <scale x="225" y="225"/>
+    </format>
 
     <!--
     Render an image from the media_selection in a specific format the following way:
