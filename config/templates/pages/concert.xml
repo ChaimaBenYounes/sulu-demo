@@ -4,8 +4,8 @@
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>Concert</key>
-    <view>pages/Concert</view>
+    <key>concert</key>
+    <view>pages/concert</view>
     <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
     <cacheLifetime type="seconds">2400</cacheLifetime><!-- The cache lifetime will be sent to the client in the max-age field of the Cache-Control header -->
     <meta>
